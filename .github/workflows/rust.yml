@@ -30,6 +30,9 @@ jobs:
     - name: Build arm
       run: cross build --release --target=armv7-unknown-linux-gnueabihf --verbose
       if: matrix.os == 'ubuntu-latest'
+    - name: Build armv5
+      run: cross build --release --target=armv5-unknown-linux-gnueabihf --verbose
+      if: matrix.os == 'ubuntu-latest'
     - name: Build
       run:  cargo build --release --verbose
     - name: Run tests
@@ -45,6 +48,12 @@ jobs:
       with:
         name: pcap2socks-latest-armv7
         path: ./target/armv7-unknown-linux-gnueabihf/release/pcap2socks
+      if: matrix.os == 'ubuntu-latest'
+    - name: Upload a armv5 artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: pcap2socks-latest-armv5
+        path: ./target/armv5-unknown-linux-gnueabihf/release/pcap2socks
       if: matrix.os == 'ubuntu-latest'
     - name: Update a build artifact (Windows)
       uses: actions/upload-artifact@v2
