@@ -31,7 +31,7 @@ jobs:
       run: cross build --release --target=armv7-unknown-linux-gnueabihf --verbose
       if: matrix.os == 'ubuntu-latest'
     - name: Build armv5
-      run: cross build --release --target=armv5-unknown-linux-gnueabihf --verbose
+      run: cross build --release --target=armv5te-unknown-linux-gnueabi --verbose
       if: matrix.os == 'ubuntu-latest'
     - name: Build
       run:  cargo build --release --verbose
