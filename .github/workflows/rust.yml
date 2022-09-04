@@ -53,7 +53,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: pcap2socks-latest-armv5
-        path: ./target/armv5-unknown-linux-gnueabihf/release/pcap2socks
+        path: ./target/arm-unknown-linux-musleabihf/release/pcap2socks
       if: matrix.os == 'ubuntu-latest'
     - name: Update a build artifact (Windows)
       uses: actions/upload-artifact@v2
